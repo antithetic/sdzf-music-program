@@ -5,10 +5,6 @@
   "exports": {
     ".": "./src/index.ts"
   },
-  "scripts": {
-    "format": "prettier --write .",
-    "lint": "pnpm dlx oxlint@latest --fix"
-  },
   "dependencies": {
     "@sanity/icons": "^5.2.1",
     "@sanity/ui": "^4.0.7",
