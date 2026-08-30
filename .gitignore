@@ -2,7 +2,8 @@ node_modules
 
 # build output
 dist/
-.turbo
+
+.turbo/
 
 .pnpm-store
 # generated types
