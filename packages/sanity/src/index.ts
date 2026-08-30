@@ -1,4 +1,4 @@
-import { defineConfig } from "sanity";
+import { defineConfig, isDev } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schemaTypes";
@@ -9,7 +9,11 @@ export const sharedConfig = {
   dataset: "production",
 };
 
-export const sharedPlugins = [structureTool(), media(), visionTool()];
+export const sharedPlugins = [
+  structureTool(),
+  media(),
+  ...(isDev ? [visionTool()] : []),
+];
 
 export const config = defineConfig({
   name: "sdzf-music",
