@@ -1,5 +1,13 @@
 import { defineField } from "sanity";
 
+export const titleField = defineField({
+  name: "title",
+  title: "Title",
+  description: "The title for the page. It will be displayed on the website.",
+  type: "string",
+  validation: (Rule) => Rule.required(),
+});
+
 export const slugField = defineField({
   name: "slug",
   title: "Slug",
@@ -10,17 +18,17 @@ export const slugField = defineField({
     source: "title",
   },
   validation: (Rule) =>
-    Rule.required().error(
-      `Required to generate a page on the website. Must be unique and lowercase.`,
-    ),
-});
-
-export const titleField = defineField({
-  name: "title",
-  title: "Title",
-  description: "The title for the page. It will be displayed on the page. ",
-  type: "string",
-  validation: (Rule) => Rule.required(),
+    Rule.required()
+      .error(
+        `Required to generate a page on the website. Must be unique and lowercase.`,
+      )
+      .custom((slug) => {
+        if (!slug?.current) return true;
+        if (slug.current !== slug.current.toLowerCase()) {
+          return "Slug must be lowercase";
+        }
+        return true;
+      }),
 });
 
 export const imageBlockField = defineField({
