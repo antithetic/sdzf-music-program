@@ -1,5 +1,5 @@
 import { defineField, defineType } from "sanity";
-import { FolderBookmark, CalendarDays } from "lucide-react";
+import { FolderBookmark } from "lucide-react";
 import { slugField } from "../definitions/fields/commonFields";
 import {
   fieldGroups,

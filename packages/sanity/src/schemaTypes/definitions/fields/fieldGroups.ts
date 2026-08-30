@@ -4,6 +4,21 @@ import { ImageIcon } from "@sanity/icons/Image";
 import { MenuIcon } from "@sanity/icons/Menu";
 import { SearchIcon } from "@sanity/icons/Search";
 import { CogIcon } from "@sanity/icons/Cog";
+import { UserIcon } from "@sanity/icons/User";
+import { EnvelopeIcon } from "@sanity/icons/Envelope";
+import { CommentIcon } from "@sanity/icons/Comment";
+import { SchemaIcon } from "@sanity/icons/Schema";
+
+export const affiliationsGroup = {
+  name: "affiliations",
+  title: "Affiliations",
+  icon: SchemaIcon,
+};
+export const contactGroup = {
+  name: "contact",
+  title: "Contact",
+  icon: EnvelopeIcon,
+};
 
 export const contentGroup = {
   name: "content",
@@ -23,6 +38,18 @@ export const navigationGroup = {
   icon: MenuIcon,
 };
 
+export const notesGroup = {
+  name: "notes",
+  title: "Notes",
+  icon: CommentIcon,
+};
+
+export const profileGroup = {
+  name: "profile",
+  title: "Profile",
+  icon: UserIcon,
+};
+
 export const seoGroup = {
   name: "seo",
   title: "SEO",
@@ -37,9 +64,13 @@ export const settingsGroup = {
 
 /** Named lookups for spreading into `groups` or assigning `group: fieldGroups.content.name`. */
 export const fieldGroups = {
+  affiliations: affiliationsGroup,
+  contact: contactGroup,
   content: contentGroup,
   media: mediaGroup,
   navigation: navigationGroup,
+  notes: notesGroup,
+  profile: profileGroup,
   seo: seoGroup,
   settings: settingsGroup,
 } as const;
@@ -59,4 +90,19 @@ export const editionFieldGroups: FieldGroupDefinition[] = [
   navigationGroup,
   seoGroup,
   settingsGroup,
+];
+
+export const artistFieldGroups: FieldGroupDefinition[] = [
+  { ...profileGroup, default: true },
+  contentGroup,
+  mediaGroup,
+  contactGroup,
+  navigationGroup,
+];
+
+export const contactFieldGroups: FieldGroupDefinition[] = [
+  { ...contactGroup, default: true },
+  affiliationsGroup,
+  notesGroup,
+  mediaGroup,
 ];

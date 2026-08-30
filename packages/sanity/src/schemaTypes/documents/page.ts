@@ -1,10 +1,4 @@
-import {
-  definePage,
-  defineImage,
-  defineCta,
-  defineRichText,
-  defineSeo,
-} from "../definitions/presets";
+import { defineSeo } from "../definitions/presets";
 
 import {
   slugField,
