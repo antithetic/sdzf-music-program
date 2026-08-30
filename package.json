@@ -6,7 +6,7 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "format": "prettier --write .",
-    "lint": "pnpm dlx oxlint@latest --fix"
+    "lint": "oxlint  --fix"
   },
   "license": "ISC",
   "devEngines": {
@@ -17,6 +17,7 @@
     }
   },
   "devDependencies": {
+    "oxlint": "^1.80.0",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "0.14.1",
     "turbo": "^2.10.12"
