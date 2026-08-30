@@ -6,6 +6,7 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^13.15.1",
     "@sanity/icons": "^5.2.1",
     "@sanity/presets": "^1.0.8",
     "@sanity/ui": "^4.0.7",

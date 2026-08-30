@@ -32,7 +32,8 @@ Root scripts: `pnpm dev` (Turbo), `pnpm build`, `pnpm format`, `pnpm lint`.
 Keep editions first so the site can be both a live program and an archive.
 
 - **edition** — a festival year (e.g. 2026). Singleton-per-year, not a hard-coded ID unless it is a true singleton.
-- **artist** — performer: name, slug, photo, bio, links.
+- **artist** — performer: name, slug, photo, bio, links. References reusable `contact` documents for booking, management, or press.
+- **contact** — a named person or inbox with email/phone (shared across artists when needed).
 - **stage** — named stage/venue for an edition (or reused across years).
 - **set** (timeslot) — artist + stage + edition + start/end. This is the schedule row.
 
