@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@sanity/icons": "^5.2.1",
+    "@sanity/presets": "^1.0.8",
     "@sanity/ui": "^4.0.7",
     "@sanity/vision": "^6.11.0",
     "lucide-react": "^1.37.0",

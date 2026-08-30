@@ -1,11 +1,11 @@
 import { defineField, defineType } from "sanity";
-import { BookmarkIcon } from "@sanity/icons/Bookmark";
+import { Tag } from "lucide-react";
 
 export const tagType = defineType({
   name: "tag",
   title: "Tag",
   type: "document",
-  icon: BookmarkIcon,
+  icon: Tag,
   fields: [
     defineField({
       name: "name",
@@ -22,7 +22,8 @@ export const tagType = defineType({
       options: {
         source: "name",
       },
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.required().error(`Required to generate a tag page on the website`),
     }),
     defineField({
       name: "description",
@@ -33,16 +34,25 @@ export const tagType = defineType({
       rows: 3,
     }),
     defineField({
-      name: "color",
-      title: "Color",
-      type: "string",
-      // validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: "icon",
-      title: "Icon",
-      type: "string",
-      // validation: (Rule) => Rule.required(),
+      name: "image",
+      title: "Image",
+      description:
+        "The image for the tag. This will be displayed on the tag page. If no image is provided, a default image will be used.",
+      type: "image",
+      options: {
+        hotspot: true,
+        collapsible: true,
+        collapsed: true,
+      },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alt Text",
+          description: "The alt text for the image",
+          type: "string",
+          hidden: ({ document }) => !document?.image,
+        }),
+      ],
     }),
   ],
 });
