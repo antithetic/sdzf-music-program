@@ -1,7 +1,7 @@
 import { defineField, defineType } from "sanity";
 import { Tag } from "lucide-react";
 
-export const tagType = defineType({
+export const tag = defineType({
   name: "tag",
   title: "Tag",
   type: "document",

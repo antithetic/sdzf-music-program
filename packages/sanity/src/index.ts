@@ -3,13 +3,23 @@ import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schemaTypes";
 import { media } from "sanity-plugin-media";
+import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
 
 export const sharedConfig = {
   projectId: "7mueck3w",
   dataset: "production",
 };
 
-export const sharedPlugins = [structureTool(), media(), visionTool()];
+export const sharedPlugins = [
+  // core plugins
+  structureTool(),
+  media(),
+  visionTool(),
+
+  // image asset source plugins
+  // for development purposes only, once site is live, remove this plugin
+  unsplashImageAsset(),
+];
 
 export const config = defineConfig({
   name: "sdzf-music",

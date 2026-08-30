@@ -1,4 +1,6 @@
-import { pageType } from "./pageType";
-import { tagType } from "./tagType";
+import { page } from "./page";
+import { tag } from "./tag";
+import { venue } from "./venue";
+import { edition } from "./edition";
 
-export const documentSchemaTypes = [pageType, tagType];
+export const documentSchemaTypes = [page, tag, venue, edition];

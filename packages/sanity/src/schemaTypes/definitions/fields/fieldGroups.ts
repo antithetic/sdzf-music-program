@@ -52,3 +52,11 @@ export const pageFieldGroups: FieldGroupDefinition[] = [
   seoGroup,
   settingsGroup,
 ];
+
+export const editionFieldGroups: FieldGroupDefinition[] = [
+  { ...contentGroup, default: true },
+  mediaGroup,
+  navigationGroup,
+  seoGroup,
+  settingsGroup,
+];

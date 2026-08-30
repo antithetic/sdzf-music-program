@@ -37,6 +37,9 @@ export const imageBlockField = defineField({
   description:
     "The image for the page. This will be displayed on the page. \ This image will also be used as the social media image when sharing the page on social media or other platforms.",
   type: "image",
+  options: {
+    hotspot: true,
+  },
   fields: [
     defineField({
       name: "alt",

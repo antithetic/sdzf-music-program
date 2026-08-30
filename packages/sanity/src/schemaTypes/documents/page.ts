@@ -19,7 +19,7 @@ import {
   pageFieldGroups,
 } from "../definitions/fields/fieldGroups";
 
-export const pageType = defineType({
+export const page = defineType({
   name: "page",
   title: "Page",
   type: "document",
