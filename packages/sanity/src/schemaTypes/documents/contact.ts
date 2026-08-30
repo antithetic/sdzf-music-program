@@ -1,6 +1,8 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 import { Contact } from "lucide-react";
 import { CommentIcon } from "@sanity/icons/Comment";
+import { BinaryDocumentIcon } from "@sanity/icons/BinaryDocument";
+import { ImageIcon } from "@sanity/icons/Image";
 import { contactLinksField } from "../definitions/fields/contactLinksField";
 import {
   contactFieldGroups,
@@ -22,6 +24,7 @@ export const contact = defineType({
       validation: (Rule) => Rule.required(),
       group: fieldGroups.contact.name,
     }),
+
     defineField({
       ...contactLinksField,
       name: "contactLinks",
@@ -29,6 +32,21 @@ export const contact = defineType({
       description: "Add email, phone, or another way to reach this contact.",
       group: fieldGroups.contact.name,
     }),
+
+    defineField({
+      name: "affiliations",
+      title: "Affiliations",
+      description: "Add any affiliations for this contact.",
+      group: fieldGroups.affiliations.name,
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "venue" }, { type: "artist" }, { type: "contact" }],
+        },
+      ],
+    }),
+
     defineField({
       name: "notes",
       title: "Notes",
@@ -58,6 +76,7 @@ export const contact = defineType({
               type: "string",
             }),
           ],
+
           preview: {
             select: {
               title: "note",
@@ -86,17 +105,79 @@ export const contact = defineType({
         }),
       ],
     }),
+
     defineField({
-      name: "affiliations",
-      title: "Affiliations",
-      description: "Add any affiliations for this contact.",
-      group: fieldGroups.affiliations.name,
+      name: "media",
+      title: "Media",
+      description:
+        "Note: These are internal media and not meant to be shared externally.",
+      group: fieldGroups.media.name,
       type: "array",
       of: [
-        {
-          type: "reference",
-          to: [{ type: "venue" }, { type: "artist" }, { type: "contact" }],
-        },
+        defineArrayMember({
+          name: "image",
+          type: "image",
+          icon: ImageIcon,
+          fields: [
+            defineField({
+              name: "description",
+              title: "Description",
+              type: "string",
+            }),
+            defineField({
+              name: "notes",
+              title: "Notes",
+              type: "text",
+              rows: 3,
+            }),
+          ],
+          preview: {
+            select: {
+              title: "description",
+              notes: "notes",
+              media: "asset",
+            },
+            prepare({ title, notes, media }) {
+              return {
+                title: title || "Untitled Image",
+                subtitle: notes || undefined,
+                media,
+              };
+            },
+          },
+        }),
+        defineArrayMember({
+          name: "file",
+          type: "file",
+          icon: BinaryDocumentIcon,
+          fields: [
+            defineField({
+              name: "description",
+              title: "Description",
+              type: "string",
+            }),
+            defineField({
+              name: "notes",
+              title: "Notes",
+              type: "text",
+              rows: 3,
+            }),
+          ],
+          preview: {
+            select: {
+              title: "description",
+              notes: "notes",
+              media: "asset",
+            },
+            prepare({ title, notes, media }) {
+              return {
+                title: title || "Untitled File",
+                subtitle: notes || undefined,
+                media: media || BinaryDocumentIcon,
+              };
+            },
+          },
+        }),
       ],
     }),
   ],
