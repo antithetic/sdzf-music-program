@@ -6,14 +6,14 @@ Public music program and archive for **San Diego Zine Fest (SDZF)**. Editors man
 
 Scaffolding is in place. Festival content types, Studio structure, and the public program UI are **not built yet**.
 
-| Area | State |
-| --- | --- |
-| Monorepo (pnpm + Turborepo) | Done |
-| Sanity Studio host (`apps/studio`) | Done — thin wrapper |
+| Area                                   | State               |
+| -------------------------------------- | ------------------- |
+| Monorepo (pnpm + Turborepo)            | Done                |
+| Sanity Studio host (`apps/studio`)     | Done — thin wrapper |
 | Shared Sanity package (`@repo/sanity`) | Done — empty schema |
-| Content model | Not started |
-| Astro ↔ Sanity | Not started |
-| Public program / archive UI | Stock Astro starter |
+| Content model                          | Not started         |
+| Astro ↔ Sanity                         | Not started         |
+| Public program / archive UI            | Stock Astro starter |
 
 Repo: [antithetic/sdzf-music-program](https://github.com/antithetic/sdzf-music-program). Sanity project `7mueck3w`, dataset `production`.
 
