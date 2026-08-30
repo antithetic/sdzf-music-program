@@ -34,6 +34,7 @@ export const pageType = defineType({
       ...slugField,
       group: fieldGroups.navigation.name,
     }),
+    // TODO: upgrade to page builder
     defineField({
       name: "content",
       title: "Content",
@@ -52,4 +53,14 @@ export const pageType = defineType({
       group: fieldGroups.seo.name,
     }),
   ],
+  preview: {
+    select: {
+      title: "title",
+      media: "image",
+    },
+    prepare(selection) {
+      const { title, media } = selection;
+      return { title, media };
+    },
+  },
 });

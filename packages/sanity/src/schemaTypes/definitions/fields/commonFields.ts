@@ -18,8 +18,7 @@ export const slugField = defineField({
 export const titleField = defineField({
   name: "title",
   title: "Title",
-  description:
-    "The title for the page. This will be displayed on the page. This is the main title of the page.",
+  description: "The title for the page. It will be displayed on the page. ",
   type: "string",
   validation: (Rule) => Rule.required(),
 });
