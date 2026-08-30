@@ -1,0 +1,25 @@
+{
+  "name": "@repo/sanity",
+  "description": "Sanity package for SDZF Music Program",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "pnpm dlx oxlint@latest --fix"
+  },
+  "dependencies": {
+    "@sanity/vision": "^6.11.0",
+    "sanity": "^6.11.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "styled-components": "^6.1.18"
+  },
+  "devDependencies": {
+    "@sanity/eslint-config-studio": "^7",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "typescript": "^5.8"
+  }
+}
