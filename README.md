@@ -1,8 +1,8 @@
 # SDZF Music Program
 
-Public music program and archive for **San Diego Zine Fest**. Editors manage artists, stages, time slots, and festival editions in [Sanity](https://www.sanity.io). The public schedule is an [Astro](https://astro.build) site.
+Public music program and archive for **San Diego Zine Fest**. Editors manage artists, venues, contacts, and festival editions in [Sanity](https://www.sanity.io). The public schedule will be an [Astro](https://astro.build) site.
 
-This repo is a **pnpm + Turborepo** monorepo. Scaffolding is in place; the content model and public program UI are not built yet. Product status and the planned schema live in [`PROJECT.md`](./PROJECT.md). Agent conventions live in [`AGENTS.md`](./AGENTS.md).
+This repo is a **pnpm + Turborepo** monorepo. Studio schema is underway; the public program UI and Astro ↔ Sanity connection are not built yet. Product status and the content model live in [`PROJECT.md`](./PROJECT.md). Agent conventions live in [`AGENTS.md`](./AGENTS.md).
 
 ## Requirements
 
@@ -19,10 +19,10 @@ pnpm dev
 
 Turborepo starts every `dev` script:
 
-| App           | Package name | URL                   | What you get today               |
-| ------------- | ------------ | --------------------- | -------------------------------- |
-| Public site   | `frontend`   | http://localhost:4321 | Stock Astro “Basics” starter     |
-| Sanity Studio | `sdzf-music` | http://localhost:3333 | Empty schema, Structure + Vision |
+| App           | Package name | URL                   | What you get today                                    |
+| ------------- | ------------ | --------------------- | ----------------------------------------------------- |
+| Public site   | `frontend`   | http://localhost:4321 | Stock Astro “Basics” starter                          |
+| Sanity Studio | `sdzf-music` | http://localhost:3333 | Schema for edition, artist, contact, venue, page, tag |
 
 Run one app:
 
@@ -36,7 +36,7 @@ pnpm --filter sdzf-music dev
 ```text
 apps/frontend          Astro 7 public site
 apps/studio            Sanity Studio host (re-exports shared config)
-packages/sanity        @repo/sanity — defineConfig, schema, future desk structure
+packages/sanity        @repo/sanity — defineConfig, plugins, schemaTypes
 ```
 
 Studio config is **not** edited in `apps/studio`. That app is a thin wrapper:
@@ -46,7 +46,7 @@ Studio config is **not** edited in `apps/studio`. That app is a thin wrapper:
 export { config as default } from "@repo/sanity";
 ```
 
-Add document types in `packages/sanity/src/schema/` and register them in `packages/sanity/src/schema/index.ts`. Desk structure belongs in `packages/sanity/src/structure/`.
+Add document types in `packages/sanity/src/schemaTypes/documents/` and register them in `packages/sanity/src/schemaTypes/documents/index.ts`. Shared fields live under `schemaTypes/definitions/`. Desk structure belongs in `packages/sanity/src/structure/` (empty today).
 
 ## Scripts (repo root)
 
@@ -85,20 +85,24 @@ Frontend-only (`pnpm --filter frontend`):
 | Config       | [`packages/sanity/src/index.ts`](./packages/sanity/src/index.ts) |
 | CLI          | [`apps/studio/sanity.cli.ts`](./apps/studio/sanity.cli.ts)       |
 
-Plugins enabled: Structure and Vision. Schema types are still an empty array. The Astro app is **not** connected to Sanity yet (`@sanity/client` / `@sanity/astro` are not installed).
+Plugins: Structure (default desk), [Media](https://www.sanity.io/plugins/sanity-plugin-media), Vision, and Unsplash as an image source (dev only — remove when the site is live).
+
+Registered document types: `edition`, `artist`, `contact`, `venue`, `page`, `tag`. The schedule document that joins artist + venue + edition + time is not modeled yet. The Astro app is **not** connected to Sanity (`@sanity/client` / `@sanity/astro` are not installed).
 
 Do not store festival video in Sanity `file` assets. Use Mux or an embed URL (YouTube/Vimeo) when that work starts.
 
-## Planned content model
+## Content model
 
-Not implemented. Relationships should be Sanity `reference` fields.
+Implemented in Studio. Relationships are Sanity `reference` fields.
 
 - **edition** — a festival year (live program + archive)
-- **artist** — name, slug, photo, bio, links
-- **stage** — named stage or venue
-- **set** — schedule row: artist + stage + edition + start/end
+- **artist** — name, pronouns, location, bio, images, links; references `contact`
+- **contact** — shared person or inbox (email/phone, affiliations, internal notes)
+- **venue** — named place (name only for now)
+- **page** — generic CMS page with Portable Text and SEO
+- **tag** — genre or label
 
-Details and next steps: [`PROJECT.md`](./PROJECT.md).
+Still needed for the public program: a schedule row, artist slugs, and custom Studio structure. Details and next steps: [`PROJECT.md`](./PROJECT.md).
 
 ## Docs in this repo
 
