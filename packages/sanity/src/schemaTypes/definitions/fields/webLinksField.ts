@@ -4,6 +4,18 @@ import { Globe, Link } from "lucide-react";
 const urlPattern = /^https?:\/\/[^\s]+$/i;
 
 const linkTypeLabels: Record<string, string> = {
+  management: "Management",
+  booking: "Booking",
+  interview: "Interview",
+  article: "Article",
+  writing: "Writing",
+  publication: "Publication",
+  webStore: "Web Store",
+  merchandise: "Merchandise",
+  collective: "Collective",
+  biography: "Biography",
+  event: "Event",
+  archive: "Archive",
   personal: "Personal Website",
   portfolio: "Portfolio",
   project: "Project",
