@@ -1,23 +1,55 @@
+import {
+  definePage,
+  defineImage,
+  defineCta,
+  defineRichText,
+  defineSeo,
+} from "../definitions/presets";
+
+import {
+  slugField,
+  titleField,
+  imageBlockField,
+} from "../definitions/fields/commonFields";
+
 import { defineField, defineType } from "sanity";
-import { DocumentIcon } from "@sanity/icons/Document";
+import { FileText } from "lucide-react";
+import {
+  fieldGroups,
+  pageFieldGroups,
+} from "../definitions/fields/fieldGroups";
 
 export const pageType = defineType({
   name: "page",
   title: "Page",
   type: "document",
-  icon: DocumentIcon,
+  icon: FileText,
+  groups: pageFieldGroups,
   fields: [
     defineField({
-      name: "title",
-      title: "Title",
-      type: "string",
-      validation: (Rule) => Rule.required(),
+      ...titleField,
+      group: fieldGroups.content.name,
     }),
     defineField({
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      validation: (Rule) => Rule.required(),
+      ...slugField,
+      group: fieldGroups.navigation.name,
+    }),
+    defineField({
+      name: "content",
+      title: "Content",
+      type: "blockContent",
+      group: fieldGroups.content.name,
+    }),
+    defineField({
+      ...imageBlockField,
+      group: fieldGroups.media.name,
+    }),
+    defineSeo({
+      name: "metadata",
+      title: "Metadata",
+      description:
+        "The SEO 'Search Engine Optimization' metadata for the page. This will be used to generate the page metadata. This comes in handy when sharing the page on social media or other platforms.",
+      group: fieldGroups.seo.name,
     }),
   ],
 });

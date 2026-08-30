@@ -17,7 +17,7 @@ export const config = defineConfig({
 
   ...sharedConfig,
 
-  plugins: sharedPlugins,
+  plugins: [...sharedPlugins],
 
   schema: {
     types: schemaTypes,
