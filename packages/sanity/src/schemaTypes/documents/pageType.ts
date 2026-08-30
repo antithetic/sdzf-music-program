@@ -1,13 +1,15 @@
 import { defineField, defineType } from "sanity";
+import { DocumentIcon } from "@sanity/icons/Document";
 
 export const pageType = defineType({
-  name: "pages",
-  title: "Pages",
+  name: "page",
+  title: "Page",
   type: "document",
+  icon: DocumentIcon,
   fields: [
     defineField({
-      name: "name",
-      title: "Name",
+      name: "title",
+      title: "Title",
       type: "string",
       validation: (Rule) => Rule.required(),
     }),

@@ -1,2 +1,4 @@
 import { pageType } from "./pageType";
-export const documentSchemaTypes = [pageType];
+import { tagType } from "./tagType";
+
+export const documentSchemaTypes = [pageType, tagType];
