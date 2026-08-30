@@ -11,9 +11,10 @@
   },
   "dependencies": {
     "@sanity/vision": "^6.11.0",
-    "sanity": "^6.11.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "sanity": "^6.11.0",
+    "sanity-plugin-media": "^6.1.7",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {
