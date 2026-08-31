@@ -55,4 +55,16 @@ export const tag = defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      title: "name",
+      media: "image",
+    },
+    prepare({ title, media }) {
+      return {
+        title: title || "Untitled Tag",
+        media: media || Tag,
+      };
+    },
+  },
 });
