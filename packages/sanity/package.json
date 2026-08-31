@@ -17,6 +17,7 @@
     "sanity": "^6.11.0",
     "sanity-plugin-asset-source-unsplash": "^7.0.25",
     "sanity-plugin-media": "^6.1.7",
+    "sanity-plugin-tags-v4": "^1.0.22",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {

@@ -4,6 +4,7 @@ import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schemaTypes";
 import { media } from "sanity-plugin-media";
 import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
+import { tags } from "sanity-plugin-tags-v4";
 
 export const sharedConfig = {
   projectId: "7mueck3w",
@@ -19,6 +20,7 @@ export const sharedPlugins = [
   // image asset source plugins
   // for development purposes only, once site is live, remove this plugin
   unsplashImageAsset(),
+  tags(),
 ];
 
 export const config = defineConfig({

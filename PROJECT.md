@@ -6,16 +6,16 @@ Public music program and archive for **San Diego Zine Fest (SDZF)**. Editors man
 
 Studio schema and reusable fields are in place. Editors can already create editions, artists, contacts, venues, pages, and tags. The public program UI and Astro ↔ Sanity fetch layer are **not built yet**. There is still no schedule row that ties an artist to a venue, edition, and time.
 
-| Area                                   | State                                                                 |
-| -------------------------------------- | --------------------------------------------------------------------- |
-| Monorepo (pnpm + Turborepo)            | Done                                                                  |
-| Sanity Studio host (`apps/studio`)     | Done — thin wrapper                                                   |
-| Shared Sanity package (`@repo/sanity`) | Done — schema lives here                                              |
-| Content model                          | In progress — core types exist; schedule type missing                 |
-| Studio desk structure                  | Default Structure plugin only (`src/structure/` is empty)             |
-| Astro ↔ Sanity                         | Not started                                                           |
-| Public program / archive UI            | Stock Astro starter                                                   |
-| Schema deploy / TypeGen                | Not set up                                                            |
+| Area                                   | State                                                     |
+| -------------------------------------- | --------------------------------------------------------- |
+| Monorepo (pnpm + Turborepo)            | Done                                                      |
+| Sanity Studio host (`apps/studio`)     | Done — thin wrapper                                       |
+| Shared Sanity package (`@repo/sanity`) | Done — schema lives here                                  |
+| Content model                          | In progress — core types exist; schedule type missing     |
+| Studio desk structure                  | Default Structure plugin only (`src/structure/` is empty) |
+| Astro ↔ Sanity                         | Not started                                               |
+| Public program / archive UI            | Stock Astro starter                                       |
+| Schema deploy / TypeGen                | Not set up                                                |
 
 Repo: [antithetic/sdzf-music-program](https://github.com/antithetic/sdzf-music-program). Sanity project `7mueck3w`, dataset `production`, workspace `default`.
 
@@ -41,14 +41,14 @@ Root scripts: `pnpm dev` (Turbo), `pnpm build`, `pnpm format`, `pnpm lint`.
 
 Registered document types in `packages/sanity/src/schemaTypes/documents/index.ts`:
 
-| Type      | Role                                                                                         | Maturity                                      |
-| --------- | -------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| `edition` | A festival year (title, year, date/time windows, slug)                                       | Usable                                        |
-| `artist`  | Performer: name, pronouns, location, bio, images, web/social/music links, contact references | Usable; **no slug** yet                       |
-| `contact` | Shared person/inbox: email/phone, affiliations, internal notes and media                     | Usable (internal CRM, not public)             |
-| `venue`   | Named place (currently just `name`)                                                          | Stub                                          |
-| `page`    | Generic CMS page: title, slug, Portable Text, image, SEO via `@sanity/presets`               | Usable; page-builder still TODO               |
-| `tag`     | Genre/label: name, slug, description, image                                                  | Usable                                        |
+| Type      | Role                                                                                         | Maturity                          |
+| --------- | -------------------------------------------------------------------------------------------- | --------------------------------- |
+| `edition` | A festival year (title, year, date/time windows, slug)                                       | Usable                            |
+| `artist`  | Performer: name, pronouns, location, bio, images, web/social/music links, contact references | Usable; **no slug** yet           |
+| `contact` | Shared person/inbox: email/phone, affiliations, internal notes and media                     | Usable (internal CRM, not public) |
+| `venue`   | Named place (currently just `name`)                                                          | Stub                              |
+| `page`    | Generic CMS page: title, slug, Portable Text, image, SEO via `@sanity/presets`               | Usable; page-builder still TODO   |
+| `tag`     | Genre/label: name, slug, description, image                                                  | Usable                            |
 
 `event.ts` exists as a title-only stub and is **not registered**. Do not treat it as the schedule type.
 
