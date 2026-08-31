@@ -29,19 +29,6 @@ export const event = defineType({
       group: fieldGroups.content.name,
     }),
     defineField({
-      name: "eventTags",
-      title: "Event Tags",
-      type: "array",
-      group: fieldGroups.content.name,
-      of: [
-        defineArrayMember({
-          type: "reference",
-          to: [{ type: "tag" }],
-          icon: Tag,
-        }),
-      ],
-    }),
-    defineField({
       ...imageBlockField,
       group: fieldGroups.media.name,
       title: "Event Image, Flyer or Poster",
