@@ -322,6 +322,9 @@ importers:
       '@icons-pack/react-simple-icons':
         specifier: ^13.15.1
         version: 13.15.1(react@19.2.8)
+      '@lucide/lab':
+        specifier: ^0.2.0
+        version: 0.2.0
       '@sanity/icons':
         specifier: ^5.2.1
         version: 5.2.1(react@19.2.8)
@@ -2072,6 +2075,9 @@ packages:
 
   '@lezer/lr@1.4.10':
     resolution: {integrity: sha512-rnCpTIBafOx4mRp43xOxDJbFipJm/c0cia/V5TiGlhmMa+wsSdoGmUN3w5Bqrks/09Q/D4tNAmWaT8p6NRi77A==}
+
+  '@lucide/lab@0.2.0':
+    resolution: {integrity: sha512-5zXVyp+HizDgWjGX8v3yNEijo7yJwoHS5Icj9qeqBCIHPWxVNGofbEXtnHEJ1VZ71Uhho32AX6xpHVWtWbPO2g==}
 
   '@marijn/find-cluster-break@1.0.4':
     resolution: {integrity: sha512-Wy0V7+SGUjnF9/TkiM1hKVDPj7jKXduPNboMVtHTA8dySMURWqfg/JZ9E2Sq8JgSJmkl7k7Qe9FLeMSrSraWmQ==}
@@ -8238,6 +8244,8 @@ snapshots:
   '@lezer/lr@1.4.10':
     dependencies:
       '@lezer/common': 1.5.2
+
+  '@lucide/lab@0.2.0': {}
 
   '@marijn/find-cluster-break@1.0.4': {}
 

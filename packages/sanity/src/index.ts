@@ -5,6 +5,10 @@ import { schemaTypes } from "./schemaTypes";
 import { media } from "sanity-plugin-media";
 import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
 import { tags } from "sanity-plugin-tags-v4";
+import { createLucideIcon } from "lucide-react";
+import { pinSafetyOpen } from "@lucide/lab";
+
+const PinSafetyOpen = createLucideIcon("pin-safety-open", pinSafetyOpen);
 
 export const sharedConfig = {
   projectId: "7mueck3w",
@@ -26,7 +30,7 @@ export const sharedPlugins = [
 export const config = defineConfig({
   name: "sdzf-music",
   title: "SDZF Music",
-
+  icon: PinSafetyOpen,
   ...sharedConfig,
 
   plugins: [...sharedPlugins],
