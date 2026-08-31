@@ -1,5 +1,5 @@
-import { defineArrayMember, defineField, defineType } from "sanity";
-import { CalendarHeart, Tag } from "lucide-react";
+import { defineField, defineType } from "sanity";
+import { CalendarHeart } from "lucide-react";
 import { slugField } from "../definitions/fields/commonFields";
 
 import {
