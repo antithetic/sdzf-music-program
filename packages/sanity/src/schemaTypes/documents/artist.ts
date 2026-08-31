@@ -77,7 +77,14 @@ export const artist = defineType({
       title: "Artist Tags",
       type: "tags",
       group: fieldGroups.content.name,
-      options: { includeFromRelated: "tags", allowCreate: true },
+      options: {
+        includeFromRelated: "tags",
+        allowCreate: true,
+        onCreate: (value: string) => ({
+          label: value,
+          value: value.toLowerCase().replace(/\W/g, "-"),
+        }),
+      },
     }),
     defineField({
       ...webLinksField,
