@@ -8,6 +8,7 @@ import { UserIcon } from "@sanity/icons/User";
 import { EnvelopeIcon } from "@sanity/icons/Envelope";
 import { CommentIcon } from "@sanity/icons/Comment";
 import { SchemaIcon } from "@sanity/icons/Schema";
+import { ClockIcon } from "@sanity/icons/Clock";
 
 export const affiliationsGroup = {
   name: "affiliations",
@@ -56,6 +57,12 @@ export const seoGroup = {
   icon: SearchIcon,
 };
 
+export const scheduleGroup = {
+  name: "schedule",
+  title: "Schedule",
+  icon: ClockIcon,
+};
+
 export const settingsGroup = {
   name: "settings",
   title: "Settings",
@@ -71,6 +78,7 @@ export const fieldGroups = {
   navigation: navigationGroup,
   notes: notesGroup,
   profile: profileGroup,
+  schedule: scheduleGroup,
   seo: seoGroup,
   settings: settingsGroup,
 } as const;
@@ -105,4 +113,12 @@ export const contactFieldGroups: FieldGroupDefinition[] = [
   affiliationsGroup,
   notesGroup,
   mediaGroup,
+];
+
+export const eventFieldGroups: FieldGroupDefinition[] = [
+  { ...contentGroup, default: true },
+  mediaGroup,
+  navigationGroup,
+  scheduleGroup,
+  notesGroup,
 ];
