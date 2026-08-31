@@ -22,11 +22,33 @@ export const event = defineType({
       group: fieldGroups.content.name,
     }),
     defineField({
+      name: "eventType",
+      type: "string",
+      options: {
+        list: ["in-person", "virtual"],
+        layout: "radio",
+      },
+    }),
+    defineField({
       name: "description",
       title: "Description",
       type: "text",
       rows: 3,
       group: fieldGroups.content.name,
+    }),
+    defineField({
+      name: "tags",
+      title: "Event Tags",
+      type: "tags",
+      group: fieldGroups.content.name,
+      options: {
+        includeFromRelated: "tags",
+        allowCreate: true,
+        onCreate: (value: string) => ({
+          label: value,
+          value: value.toLowerCase().replace(/\W/g, "-"),
+        }),
+      },
     }),
     defineField({
       ...imageBlockField,
