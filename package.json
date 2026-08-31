@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "turbo run dev",
+    "dev:frontend": "turbo dev --filter=frontend",
+    "dev:studio": "turbo dev --filter=studio --ui=tui",
     "build": "turbo run build",
     "format": "prettier --write .",
     "lint": "oxlint  --fix"
